@@ -42,7 +42,7 @@ jobs:
             flutter-version: 3.24.5
 
           - NAME: vntApp-IOS
-            OS: macos-14
+            OS: macos-15
             flutter-version: 3.24.5
 
           - NAME: vntApp-linux-x86_64
@@ -75,7 +75,7 @@ jobs:
         
       - name: 设置JDK环境
         if: matrix.NAME == 'vntApp-android'
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         env:
           FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
         with:
@@ -123,7 +123,7 @@ jobs:
 
       - name: 缓存 Flutter 依赖
         if: matrix.NAME == 'vntApp-macOS'
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ~/.pub-cache
           key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.yaml') }}
@@ -132,7 +132,7 @@ jobs:
 
       - name: 缓存 Flutter / Pub / Gradle（Windows 7 引擎版）
         if: matrix.NAME == 'vntApp-windows'
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: |
             ~/.pub-cache
@@ -148,7 +148,7 @@ jobs:
 
       - name: 缓存 Flutter / Pub / Gradle（标准版）
         if: matrix.NAME != 'vntApp-windows'
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: |
             ~/.pub-cache
