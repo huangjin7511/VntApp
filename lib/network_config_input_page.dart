@@ -46,7 +46,7 @@ class _NetworkConfigInputPageState extends State<NetworkConfigInputPage> {
   String _isServerEncrypted = 'CLOSE';
   bool _isPasswordVisible = false;
   bool _isTokenVisible = false;
-  String _communicationMethod = 'UDP';
+  String _communicationMethod = 'WS';
   String _dataFingerprintVerification = 'CLOSE';
   String _encryptionAlgorithm = 'xor';
   String _routingMode = 'P2P';

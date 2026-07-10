@@ -44,7 +44,6 @@ class _MainNavigationShellState extends State<MainNavigationShell> {
     _NavItem(icon: Icons.meeting_room_outlined, activeIcon: Icons.meeting_room, label: '房间'),
     _NavItem(icon: Icons.folder_outlined, activeIcon: Icons.folder, label: '配置'),
     _NavItem(icon: Icons.settings_outlined, activeIcon: Icons.settings, label: '设置'),
-    _NavItem(icon: Icons.info_outline, activeIcon: Icons.info, label: '关于'),
   ];
 
   @override
@@ -527,7 +526,7 @@ class _MainNavigationShellState extends State<MainNavigationShell> {
                   ),
                   SizedBox(height: logoSpacing),
                   Text(
-                    'VNT',
+                    'VNN',
                     style: TextStyle(
                       fontSize: logoFontSize,
                       fontWeight: FontWeight.bold,
