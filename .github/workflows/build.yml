@@ -1,5 +1,7 @@
 name: VntApp
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true   # 提前用 Node 24 跑，验证兼容性
 on:
   push:
     branches:
