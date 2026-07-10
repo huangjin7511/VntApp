@@ -42,7 +42,7 @@ jobs:
             flutter-version: 3.24.5
 
           - NAME: vntApp-IOS
-            OS: macos-15
+            OS: macos-14
             flutter-version: 3.24.5
 
           - NAME: vntApp-linux-x86_64
@@ -63,7 +63,7 @@ jobs:
 
     runs-on: ${{ matrix.OS }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@main
         with:
          ref: flutter
 
@@ -75,9 +75,7 @@ jobs:
         
       - name: 设置JDK环境
         if: matrix.NAME == 'vntApp-android'
-        uses: actions/setup-java@v5
-        env:
-          FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+        uses: actions/setup-java@v4
         with:
           distribution: 'microsoft'
           java-version: 17
@@ -91,7 +89,7 @@ jobs:
 
       - name: 设置Flutter环境
         if: "!startsWith(matrix.NAME, 'vntApp-linux')"
-        uses: subosito/flutter-action@v2.18.0 #https://github.com/subosito/flutter-action/issues/277
+        uses: subosito/flutter-action@v2.12.0 #https://github.com/subosito/flutter-action/issues/277
         with:
           channel: stable
           flutter-version: ${{ matrix.flutter-version }}
@@ -123,7 +121,7 @@ jobs:
 
       - name: 缓存 Flutter 依赖
         if: matrix.NAME == 'vntApp-macOS'
-        uses: actions/cache@v5
+        uses: actions/cache@main
         with:
           path: ~/.pub-cache
           key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.yaml') }}
@@ -132,7 +130,7 @@ jobs:
 
       - name: 缓存 Flutter / Pub / Gradle（Windows 7 引擎版）
         if: matrix.NAME == 'vntApp-windows'
-        uses: actions/cache@v5
+        uses: actions/cache@main
         with:
           path: |
             ~/.pub-cache
@@ -148,7 +146,7 @@ jobs:
 
       - name: 缓存 Flutter / Pub / Gradle（标准版）
         if: matrix.NAME != 'vntApp-windows'
-        uses: actions/cache@v5
+        uses: actions/cache@main
         with:
           path: |
             ~/.pub-cache
@@ -264,7 +262,7 @@ jobs:
 
       - name: 上传 jniLibs
         if: matrix.NAME == 'vntApp-android' && github.event.inputs.rebuild_android_so == 'true'
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@main
         with:
           name: android-jniLibs
           path: android/app/src/main/jniLibs/
@@ -463,7 +461,7 @@ jobs:
               ${{ matrix.BUNDLE_DIR }} ${{ matrix.APPIMAGE_ARCH }}
 
       - name: Archive artifact
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@main
         with:
           name: ${{ matrix.NAME }}
           path: |
@@ -479,7 +477,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download artifacts
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@main
         with:
           path: ./artifacts
       - name: List
