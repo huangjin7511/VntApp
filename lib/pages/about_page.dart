@@ -161,7 +161,7 @@ class _AboutPageState extends State<AboutPage> {
 
           // 应用名称
           Text(
-            'VNT APP',
+            'VPW APP',
             style: TextStyle(
               fontSize: context.fontXLarge,
               fontWeight: FontWeight.bold,

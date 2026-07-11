@@ -138,7 +138,7 @@ Future<void> main(List<String> args) async {
         }
 
         // 设置窗口标题
-        await windowManager.setTitle('VNT App');
+        await windowManager.setTitle('VPW App');
 
         // macOS: 由于以root权限运行，隐藏最小化和最大化按钮,只保留关闭按钮
         // 这是因为macOS安全限制导致这些按钮无法正常工作
@@ -152,7 +152,7 @@ Future<void> main(List<String> args) async {
       // Windows 和 Linux 保持原有逻辑
       final windowSize = await DataPersistence().loadWindowSize();
       final windowPosition = await DataPersistence().loadWindowPosition();
-      windowManager.setTitle('VNT App');
+      windowManager.setTitle('VPW App');
 
       // 只在 Windows 10+ 上使用自定义标题栏，Windows 7 使用系统标题栏
       if (!Platform.isWindows || isWindows10OrGreater()) {
@@ -244,7 +244,7 @@ class _VntAppState extends State<VntApp> {
       setCustomThemeColor: _setCustomThemeColor,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'VNT App',
+        title: 'VPW App',
         // 添加本地化支持
         localizationsDelegates: const [
           GlobalMaterialLocalizations.delegate,

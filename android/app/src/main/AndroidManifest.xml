@@ -21,7 +21,7 @@
     <application
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
-        android:label="VPW"
+        android:label="VNT"
         android:requestLegacyExternalStorage="true">
         <!-- FileProvider配置：file_picker插件需要 -->
         <provider
@@ -50,7 +50,7 @@
         <service
             android:name=".MyTileService"
             android:icon="@mipmap/ic_launcher"
-            android:label="VPW"
+            android:label="VNT"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
             android:exported="true">
             <intent-filter>
@@ -82,7 +82,7 @@
         <receiver
             android:name=".VntWidgetSmall"
             android:exported="true"
-            android:label="VPW 快捷开关">
+            android:label="VNT 快捷开关">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -94,7 +94,7 @@
         <receiver
             android:name=".VntWidgetLarge"
             android:exported="true"
-            android:label="VPW 状态面板">
+            android:label="VNT 状态面板">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
